@@ -23,8 +23,8 @@ class _MyAnimatedWidgetState extends State<MyAnimatedWidget> {
   _MyAnimatedWidgetState(
       this._startAlignment, this._endAlignment, this._title, this._subtitle);
 
-  final _duration = Duration(milliseconds: 200);
-  final _startAlignment; // = Alignment.topCenter;
+  final _duration = Duration(milliseconds: 400);
+  final _startAlignment;
   final _endAlignment;
   final _title;
   final _subtitle;
@@ -66,13 +66,13 @@ class _MyAnimatedWidgetState extends State<MyAnimatedWidget> {
   @override
   Widget build(BuildContext context) {
     return AnimatedAlign(
-      duration: Duration(milliseconds: 300),
+      duration: Duration(milliseconds: 250),
       alignment: _currentAlignment,
       child: AnimatedContainer(
         width: myWidth,
         height: myHeight,
         duration: _duration,
-        curve: Curves.easeInSine,
+        curve: Curves.easeInOutBack,
         child: Card(
           color: Colors.cyan,
           child: InkWell(

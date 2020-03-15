@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_challenge/animated_widget.dart';
+import 'package:tech_challenge/app/shared/components/animated_widget.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key key}) : super(key: key);
