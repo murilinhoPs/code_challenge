@@ -17,7 +17,6 @@
 _________________________________________________________________________________________________________________________________________
 
 <div >
-   <img  width="225">
 <img align="center" src="https://cdn.discordapp.com/attachments/572841858179399683/690023858866225199/Home.png" alt="drawing" height="425"/>
 <img align="center" src="https://cdn.discordapp.com/attachments/572841858179399683/690023853258309751/Simulator_Screen_Shot_-_iPhone_11_Pro_-_2020-03-18_at_22.20.54.png" alt="drawing" height="425"/>
   <img align="center" src="https://cdn.discordapp.com/attachments/572841858179399683/690023855057797123/Simulator_Screen_Shot_-_iPhone_11_Pro_-_2020-03-18_at_22.21.10.png" alt="drawing" height="425"/>
