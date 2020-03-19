@@ -12,21 +12,24 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    final phoneWidth = MediaQuery.of(context).size.width;
+    final phoneHeight = MediaQuery.of(context).size.height;
+    return ListView(
       children: <Widget>[
         _planos(context),
         SizedBox(height: 10.0),
         Container(
           margin: EdgeInsets.only(top: 20.0),
-          width: 300,
-          height: 200,
+          width: phoneWidth * 0.9,
+          height: 230,
           child: Card(
             elevation: 8.0,
             child: Center(
               child: FormPage(),
             ),
           ),
-        )
+        ),
+        SizedBox(height: 10.0),
       ],
     );
   }

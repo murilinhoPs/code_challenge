@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tech_challenge/app/shared/controllers/bloc_controller.dart';
+import 'package:tech_challenge/app/shared/global/ddd_bloc.dart';
+
+import '../../app_module.dart';
 
 class DddDropdown extends StatefulWidget {
   @override
@@ -14,7 +18,16 @@ class _DddDropdownState extends State<DddDropdown> {
 
   bool _active = false;
 
-  _verifyDdd() {
+  final _dddBloc = AppModule.to.bloc<DddBloc>();
+
+  final _blocController = BlocController();
+
+  _infoDdd() {
+    if (forValue != null && fromValue != null)
+      _blocController.addInfoDdd(dddFrom: fromValue, dddFor: forValue);
+  }
+
+  _verifyEqualsDdd() {
     if (fromValue != forValue) {
       setState(() {
         _active = true;
@@ -43,7 +56,7 @@ class _DddDropdownState extends State<DddDropdown> {
               ),
               DropdownButton(
                 value: fromValue,
-                hint: Text('011'),
+                hint: Text('DDD'),
                 underline: Container(
                   height: 1.5,
                   color: Colors.cyan,
@@ -55,14 +68,16 @@ class _DddDropdownState extends State<DddDropdown> {
                   );
                 }).toList(),
                 onChanged: (newValue) {
-                  print('antes: $fromValue');
+                  //print('antes: $fromValue');
                   setState(() {
                     fromValue = newValue;
 
-                    _verifyDdd();
+                    _verifyEqualsDdd();
 
-                    print('depois: $fromValue');
+                    //print('depois: $fromValue');
                   });
+                  _dddBloc.verifyDdd(fromValue, _dddArray2);
+                  _infoDdd();
                 },
               ),
             ],
@@ -86,7 +101,7 @@ class _DddDropdownState extends State<DddDropdown> {
           ),
           DropdownButton(
             value: forValue,
-            hint: Text('016'),
+            hint: Text('DDD'),
             underline: Container(
               height: 1.5,
               color: Colors.cyan,
@@ -98,14 +113,16 @@ class _DddDropdownState extends State<DddDropdown> {
               );
             }).toList(),
             onChanged: (newValue) {
-              print('antes: $forValue');
+              //print('antes: $forValue');
               setState(() {
                 forValue = newValue;
 
-                _verifyDdd();
+                _verifyEqualsDdd();
 
-                print('depois: $forValue');
+                //print('depois: $forValue');
               });
+              _dddBloc.verifyDdd(forValue, _dddArray1);
+              _infoDdd();
             },
           ),
         ],
@@ -130,8 +147,8 @@ class _DddDropdownState extends State<DddDropdown> {
       child: Row(
         children: <Widget>[
           DropdownMenuItem(
-            value: '016',
-            child: forValue != null ? Text('$forValue') : Text('016'),
+            value: 'DDD',
+            child: forValue != null ? Text('$forValue') : Text('DDD'),
           ),
           Icon(Icons.arrow_drop_down)
         ],

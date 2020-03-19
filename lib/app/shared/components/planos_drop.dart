@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_challenge/app/shared/controllers/bloc_controller.dart';
 
 class PlanosDropdown extends StatefulWidget {
   @override
@@ -14,6 +15,14 @@ class _PlanosDropdownState extends State<PlanosDropdown> {
 
   String _dropdownValue;
   int dropdownToInt;
+
+  final _blocController = BlocController();
+
+  _infoPlan() {
+    if (dropdownToInt != null) {
+      _blocController.addInfoPlan(dropdownToInt);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +42,10 @@ class _PlanosDropdownState extends State<PlanosDropdown> {
           );
         }).toList(),
         onChanged: (String newValue) {
-          print('antes: $_dropdownValue');
+          //print('antes: $_dropdownValue');
           setState(() {
             _dropdownValue = newValue;
-
-            print('depois: $_dropdownValue');
+            //print('depois: $_dropdownValue');
           });
 
           _setValueToInt();
@@ -59,6 +67,8 @@ class _PlanosDropdownState extends State<PlanosDropdown> {
         break;
     }
 
-    print('planoIntLocal: $dropdownToInt');
+    _infoPlan();
+
+    //print('planoIntLocal: $dropdownToInt');
   }
 }

@@ -9,7 +9,11 @@ class AppWidget extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.cyan,
-          title: Text('Title'), //Text('Orapma'),
+          centerTitle: true,
+          title: Container(
+            height: 55.0,
+            child: Image.asset('assets/orapma.png'),
+          ), //Text('Orapma'),
         ),
         body: Center(
           child: MyHomePage(),
